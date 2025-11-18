@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enem Fácil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #0d1b38;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .section-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+    }
+    @media (max-width: 768px) {
+      .section-container {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#0d1b38] text-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-[#0d1b38]/95 backdrop-blur-sm shadow-lg py-4 px-4 md:px-8">
+    <nav class="container mx-auto flex justify-between items-center">
+      <a href="#home" class="flex items-center text-xl font-bold">
+        Enem fácil <span class="text-yellow-400 text-2xl ml-2">💡</span>
+      </a>
+
+      <!-- Menu Desktop -->
+      <ul class="hidden md:flex space-x-6 text-sm font-medium">
+        <li><a href="#home" class="hover:text-gray-400 transition">Início</a></li>
+        <li><a href="#about" class="hover:text-gray-400 transition">Sobre</a></li>
+        <li><a href="#why-us" class="hover:text-gray-400 transition">Porque do projeto?</a></li>
+        <li><a href="#site-info" class="hover:text-gray-400 transition">Sobre o site</a></li>
+        <li><a href="#contact" class="hover:text-gray-400 transition">Contato</a></li>
+      </ul>
+
+      <!-- Botão menu mobile -->
+      <button id="menu-btn" class="md:hidden text-white text-2xl">☰</button>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden flex-col mt-3 space-y-2 bg-[#0d1b38] text-center py-3 rounded-lg md:hidden">
+      <a href="#home" class="block py-1 hover:text-gray-400">Início</a>
+      <a href="#about" class="block py-1 hover:text-gray-400">Sobre</a>
+      <a href="#why-us" class="block py-1 hover:text-gray-400">Porque do projeto?</a>
+      <a href="#site-info" class="block py-1 hover:text-gray-400">Sobre o site</a>
+      <a href="#contact" class="block py-1 hover:text-gray-400">Contato</a>
+    </div>
+  </header>
+
+  <!-- Home -->
+  <section id="home" class="section-container pt-24 md:pt-32">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+          Venha se preparar conosco!!!
+        </h1>
+        <a href="/front/home.html"
+           class="mt-8 inline-block py-4 px-10 text-white font-bold bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 shadow-lg rounded-full transition-all duration-300 text-lg">
+          Visite nosso site!
+        </a>
+      </div>
+
+      <div class="md:w-1/2 flex justify-center">
+        <img src="/img/logoenem2.jpeg" alt="Imagem Enem Fácil"
+             class="w-72 sm:w-96 md:w-full max-w-lg rounded-2xl shadow-2xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section-container">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+        <span class="text-[#2a7ae2]">Enem fácil</span> busca preparar, auxiliar e capacitar estudantes.
+      </h2>
+      <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        Para se preparar, organize um cronograma de estudos, use materiais confiáveis, faça simulados e treine redações.
+        Além disso, cuide da sua saúde, durma bem e mantenha a calma no dia da prova.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section-container">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">O ENEM</h2>
+        <p class="text-base sm:text-lg md:text-xl leading-relaxed">
+          O ENEM é a principal avaliação educacional do Brasil. Mede o desempenho dos estudantes e é usado para ingresso
+          em universidades, bolsas e financiamentos. A prova inclui questões de várias áreas e uma redação.
+        </p>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl w-72 sm:w-96">
+          <img src="/img/enemlogo.jpeg" alt="Logo do Enem" class="w-full h-auto rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why-us" class="section-container">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="md:w-1/2 flex justify-center order-2 md:order-1">
+        <img src="/img/imagem.png" alt="Alunos estudando"
+             class="w-72 sm:w-96 md:w-full max-w-md rounded-2xl shadow-2xl">
+      </div>
+      <div class="md:w-1/2 text-center md:text-left order-1 md:order-2">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          O porquê deste projeto?
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl leading-relaxed">
+          Esse projeto visa ajudar estudantes a se candidatar a universidades, como parte do nosso TCC com o tema
+          Educação (ODS 4). Somos alunos do ensino médio técnico em Desenvolvimento de Sistemas da rede estadual de São Paulo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Info -->
+  <section id="site-info" class="section-container">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          Um pouco de nosso site...
+        </h2>
+        <ul class="text-base sm:text-lg md:text-xl leading-relaxed list-disc list-inside space-y-2 text-left mx-auto max-w-md">
+          <li>Perfis Individuais de Universidades</li>
+          <li>Listagem de Universidades</li>
+          <li>Comparação de Universidades</li>
+          <li>Depoimentos e Avaliações</li>
+          <li>Dicas para Estudantes</li>
+          <li>Ferramentas Interativas</li>
+          <li>Simulador de Nota de Corte</li>
+          <li>Sugestões de Simulados</li>
+          <li>Fórum e Comunidade</li>
+          <li>Contato e Suporte</li>
+        </ul>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <img src="/img/castelozuada.png" alt="Jovem estudando"
+             class="w-72 sm:w-96 md:w-full max-w-md rounded-2xl shadow-2xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-container">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
+      <div class="md:w-1/2">
+        <h2 class="flex items-center justify-center md:justify-start text-3xl sm:text-4xl font-bold mb-4">
+          Enem fácil <span class="text-yellow-400 text-2xl ml-2">💡</span>
+        </h2>
+      </div>
+      <div class="md:w-1/2">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          Fale conosco
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl leading-relaxed">
+          📞 (11) 91630-7761<br>
+          📍 Rua Lourenço Franco do Prado, 10 - Jardim Nélia, São Paulo<br>
+          📧 enemfácilCL.@gmail.com
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full text-center py-4 bg-[#0d1b38] border-t border-gray-700">
+    <p class="text-xs sm:text-sm text-gray-400">
+      © 2025 ENEM fácil. Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <!-- Script menu mobile -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+
+</body>
+</html>
