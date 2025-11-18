@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Nota de Corte - ENEM Fácil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // ⚙️ Habilita modo escuro por classe no Tailwind
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    body { box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
+    .toggle-switch {
+      position: relative; width: 60px; height: 30px;
+      background: #cbd5e1; border-radius: 15px;
+      cursor: pointer; transition: background 0.3s;
+    }
+    .toggle-switch.active { background: #3b82f6; }
+    .toggle-slider {
+      position: absolute; top: 3px; left: 3px;
+      width: 24px; height: 24px; background: white;
+      border-radius: 50%; transition: transform 0.3s;
+    }
+    .toggle-switch.active .toggle-slider { transform: translateX(30px); }
+    .lightbulb-icon { width: 32px; height: 32px; fill: #fbbf24; }
+  </style>
+</head>
+
+<body class="bg-blue-50 dark:bg-gray-900 min-h-screen flex items-center justify-center transition-colors duration-300">
+
+<main class="w-full max-w-3xl bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-8 mx-4 transition-colors duration-300">
+  <header class="text-center mb-8">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <svg class="lightbulb-icon" viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+        <path d="M9 21h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+      </svg>
+      <h1 class="text-3xl font-bold text-blue-600 dark:text-blue-400">ENEM Fácil</h1>
+    </div>
+
+    <!-- Botão de voltar -->
+    <a href="/front/centrodeestudo.html"
+       class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-sm mb-5 transition">
+       Voltar para o centro de estudos
+    </a>
+
+    <!-- Alternância do tema -->
+    <div class="flex items-center justify-center gap-3">
+      <span class="text-sm text-gray-600 dark:text-gray-400">☀️ Claro</span>
+      <div class="toggle-switch" id="darkModeToggle"><div class="toggle-slider"></div></div>
+      <span class="text-sm text-gray-600 dark:text-gray-400">🌙 Escuro</span>
+    </div>
+  </header>
+
+  <h2 class="text-2xl font-bold text-center text-blue-600 dark:text-blue-400 mb-6">Calculadora de Nota de Corte</h2>
+
+  <p class="text-gray-700 dark:text-gray-300 text-sm mb-6 text-center">
+    As notas de corte exibidas são médias das principais universidades e servem como referência para outras faculdades.
+  </p>
+
+  <div class="space-y-6">
+    <div>
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Suas Notas do ENEM</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input type="number" id="redacao" placeholder="Redação 0-1000" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white"/>
+        <input type="number" id="matematica" placeholder="Matemática 0-1000" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white"/>
+        <input type="number" id="linguagens" placeholder="Linguagens 0-1000" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white"/>
+        <input type="number" id="humanas" placeholder="Ciências Humanas 0-1000" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white"/>
+        <input type="number" id="natureza" placeholder="Ciências da Natureza 0-1000" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white"/>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Curso Desejado</h3>
+      <select id="curso" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white">
+        <option value="">-- Escolha um curso --</option>
+        <option value="medicina">Medicina</option>
+        <option value="direito">Direito</option>
+        <option value="engenharia">Engenharia</option>
+        <option value="administracao">Administração</option>
+        <option value="pedagogia">Pedagogia</option>
+        <option value="psicologia">Psicologia</option>
+        <option value="computacao">Computação</option>
+        <option value="arquitetura">Arquitetura</option>
+        <option value="enfermagem">Enfermagem</option>
+        <option value="biologia">Biologia</option>
+        <option value="educacao_fisica">Educação Física</option>
+        <option value="contabeis">Ciências Contábeis</option>
+        <option value="quimica">Química</option>
+        <option value="fisica">Física</option>
+        <option value="farmacia">Farmácia</option>
+        <option value="veterinaria">Medicina Veterinária</option>
+        <option value="odontologia">Odontologia</option>
+        <option value="engenharia_civil">Engenharia Civil</option>
+        <option value="engenharia_eletrica">Engenharia Elétrica</option>
+        <option value="engenharia_mecanica">Engenharia Mecânica</option>
+        <option value="engenharia_quimica">Engenharia Química</option>
+        <option value="engenharia_computacao">Engenharia de Computação</option>
+        <option value="design">Design</option>
+        <option value="historia">História</option>
+        <option value="geografia">Geografia</option>
+        <option value="linguas">Letras / Línguas</option>
+        <option value="sociologia">Sociologia</option>
+        <option value="ciencias_ambientais">Ciências Ambientais</option>
+        <option value="nutricao">Nutrição</option>
+        <option value="fisioterapia">Fisioterapia</option>
+        <option value="musicologia">Musicologia</option>
+      </select>
+    </div>
+
+    <button id="calculate-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg">Calcular Nota</button>
+
+    <div id="resultado" class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-center hidden transition-colors duration-300">
+      <div id="resultado-conteudo"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // ---- Configurações de pesos e notas médias ----
+  const pesosCursos = {
+    medicina: { redacao: 3, matematica: 1, linguagens: 1.5, humanas: 1, natureza: 2 },
+    direito: { redacao: 2, matematica: 1, linguagens: 2, humanas: 2, natureza: 1 },
+    engenharia: { redacao: 1, matematica: 3, linguagens: 1, humanas: 1, natureza: 2 },
+    administracao: { redacao: 1.5, matematica: 2, linguagens: 1.5, humanas: 1.5, natureza: 1 },
+    pedagogia: { redacao: 2, matematica: 1, linguagens: 2, humanas: 2, natureza: 1 },
+    psicologia: { redacao: 2, matematica: 1, linguagens: 2, humanas: 2, natureza: 1 },
+    computacao: { redacao: 1, matematica: 3, linguagens: 1, humanas: 1, natureza: 2 }
+  };
+
+  const notasCorteMedia = {
+    medicina: 750, direito: 650, engenharia: 600, administracao: 550,
+    pedagogia: 500, psicologia: 580, computacao: 620
+  };
+
+  // ---- Modo escuro com salvamento ----
+  const darkToggle = document.getElementById("darkModeToggle");
+  const prefersDark = localStorage.getItem("dark-mode") === "true";
+
+  if (prefersDark) {
+    document.documentElement.classList.add("dark");
+    darkToggle.classList.add("active");
+  }
+
+  darkToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    darkToggle.classList.toggle("active");
+    localStorage.setItem("dark-mode", isDark);
+  });
+
+  // ---- Cálculo das notas ----
+  document.getElementById("calculate-button").addEventListener("click", () => {
+    const notas = {
+      redacao: parseFloat(document.getElementById("redacao").value) || 0,
+      matematica: parseFloat(document.getElementById("matematica").value) || 0,
+      linguagens: parseFloat(document.getElementById("linguagens").value) || 0,
+      humanas: parseFloat(document.getElementById("humanas").value) || 0,
+      natureza: parseFloat(document.getElementById("natureza").value) || 0
+    };
+
+    const curso = document.getElementById("curso").value;
+    if (!curso) { alert("Selecione um curso"); return; }
+
+    const pesos = pesosCursos[curso] || { redacao:1, matematica:1, linguagens:1, humanas:1, natureza:1 };
+    const notaCorte = notasCorteMedia[curso] || 550;
+
+    const soma = Object.keys(notas).reduce((acc, key) => acc + notas[key]*pesos[key], 0);
+    const media = soma / Object.values(pesos).reduce((a,b)=>a+b,0);
+
+    const passou = media >= notaCorte;
+    const diferenca = Math.abs(media - notaCorte);
+
+    const conteudo = document.getElementById("resultado-conteudo");
+    conteudo.innerHTML = `
+      <h3 class="text-xl font-bold mb-2">${curso.charAt(0).toUpperCase() + curso.slice(1).replace('_',' ')}</h3>
+      <p>Nota de Corte Média: <strong>${notaCorte}</strong></p>
+      <p>Sua Média: <span class="${passou ? 'text-green-600' : 'text-red-600'} font-semibold">${media.toFixed(1)}</span></p>
+      <p>${passou ? `🎉 Parabéns! Você está acima da média (+${diferenca.toFixed(1)})` : `📘 Faltaram ${diferenca.toFixed(1)} pontos para atingir a média.`}</p>
+    `;
+    document.getElementById("resultado").classList.remove("hidden");
+  });
+</script>
+</body>
+</html>
